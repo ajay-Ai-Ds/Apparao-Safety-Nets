@@ -92,6 +92,20 @@ export default function RootLayout({
       className={`${inter.variable} ${outfit.variable} h-full`}
     >
       <head>
+        {/* Google tag (gtag.js) */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-M5S8SWWZ2Y"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', 'G-M5S8SWWZ2Y');
+            `,
+          }}
+        />
+        
         {/* Google Tag Manager */}
         {gtmId && gtmId !== 'GTM-XXXXXXX' && (
           <script
