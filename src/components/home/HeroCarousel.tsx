@@ -240,13 +240,13 @@ export default function HeroCarousel() {
               alt={currentSlide.titleHighlight}
               fill
               priority={current === 0}
-              className="object-cover object-center brightness-[0.90] saturate-[1.10]"
+              className="object-cover object-center brightness-[0.95] saturate-[1.05]"
               sizes="100vw"
             />
           </motion.div>
         </AnimatePresence>
-        {/* Left-to-right blue gradient overlay for text readability, reducing high brightness with a color tone */}
-        <div className="absolute inset-0 z-10 bg-blue-950/20 md:bg-gradient-to-r md:from-blue-950/75 md:via-blue-900/35 md:to-transparent pointer-events-none mix-blend-multiply" />
+        {/* Left-to-right warm/yellowish gradient overlay for text readability and visible images */}
+        <div className="absolute inset-0 z-10 bg-amber-950/15 md:bg-gradient-to-r md:from-amber-950/50 md:via-amber-950/15 md:to-transparent pointer-events-none" />
       </div>
 
       <div className="container-custom relative z-20 w-full py-12 lg:py-20">
@@ -362,8 +362,8 @@ export default function HeroCarousel() {
             </div>
           </div>
 
-          {/* Hero Right: Booking Form (Desktop Only, overlays background) */}
-          <div className="lg:col-span-4 w-full hidden lg:block">
+          {/* Hero Right: Booking Form */}
+          <div className="lg:col-span-4 w-full mt-8 lg:mt-0 pb-24 lg:pb-0">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
