@@ -6,7 +6,7 @@ export const BUSINESS: BusinessInfo = {
   phone: '+91-8309291531',
   whatsapp: '+91-8309291531',
   trackingPhone: '+91-8309291531',
-  email: 'info@apparaosafetynets.com',
+  email: 'apparaosafetynet555@gmail.com',
   address: {
     street: 'Plot No. 42, Beside Metro Station',
     area: 'Kukatpally',

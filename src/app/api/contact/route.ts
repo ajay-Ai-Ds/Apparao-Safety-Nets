@@ -50,7 +50,7 @@ export async function POST(request: Request) {
     // In production, configure environment variables: SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, CONTACT_EMAIL
     // Using nodemailer:
     // const transporter = nodemailer.createTransport({ host: process.env.SMTP_HOST, port: 587, auth: { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS } });
-    // await transporter.sendMail({ from: '"Apparao Safety Nets" <info@apparaosafetynets.com>', to: process.env.CONTACT_EMAIL, subject: `New Lead: ${name} - ${service}`, text: ... });
+    // await transporter.sendMail({ from: '"Apparao Safety Nets" <apparaosafetynet555@gmail.com>', to: process.env.CONTACT_EMAIL, subject: `New Lead: ${name} - ${service}`, text: ... });
 
     // ── Placeholder for Google Sheets Integration ──
     // Fetch a Google Sheets API endpoint or Zapier Webhook
