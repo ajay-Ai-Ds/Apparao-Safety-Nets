@@ -70,9 +70,10 @@ export default function Header() {
   return (
     <>
       {/* Top Bar */}
-      <div className="bg-primary-900 text-green-50 text-sm hidden md:block">
-        <div className="container-custom flex items-center justify-between py-2">
-          <div className="flex items-center gap-6">
+      <div className="bg-primary-900 text-green-50 text-xs md:text-sm">
+        <div className="container-custom flex flex-wrap items-center justify-center md:justify-between py-1.5 md:py-2 gap-2 md:gap-0">
+          <div className="flex flex-wrap items-center justify-center md:justify-start gap-3 md:gap-6 w-full md:w-auto">
+            <span className="font-semibold text-accent-400">Open 24/7</span>
             <a
               href={`tel:${BUSINESS.phone}`}
               className="flex items-center gap-1.5 text-white hover:text-green-100 transition-colors font-medium"
@@ -84,12 +85,12 @@ export default function Header() {
             </a>
             <a
               href={`mailto:${BUSINESS.email}`}
-              className="text-white hover:text-green-100 transition-colors font-medium"
+              className="hidden md:inline-flex text-white hover:text-green-100 transition-colors font-medium"
             >
               {BUSINESS.email}
             </a>
           </div>
-          <div className="flex items-center gap-4">
+          <div className="hidden md:flex items-center gap-4">
             <span className="text-green-100">
               Serving all of Hyderabad & Secunderabad
             </span>
