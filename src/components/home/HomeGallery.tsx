@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Eye, Shield, Camera } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 
 interface PhotoItem {
@@ -80,11 +81,12 @@ export default function HomeGallery() {
                 key={photo.id}
                 className="group relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-slate-100 cursor-pointer"
               >
-                <img
+                <Image
                   src={photo.imgUrl}
                   alt={photo.title}
-                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                  loading="lazy"
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                 />
                 
                 {/* Visual Glass Blur Overlay */}

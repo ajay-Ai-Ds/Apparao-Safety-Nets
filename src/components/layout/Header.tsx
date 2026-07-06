@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback, useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -123,9 +124,11 @@ export default function Header() {
               aria-label="Apparao Safety Nets - Home"
             >
               <div className="relative w-16 h-16 sm:w-20 sm:h-20 flex-shrink-0 overflow-hidden rounded-2xl border border-slate-200 shadow-sm bg-white flex items-center justify-center group-hover:scale-105 transition-all">
-                <img
+                <Image
                   src="/images/Aplogo.webp"
                   alt="Apparao Safety Nets Logo"
+                  width={80}
+                  height={80}
                   className="w-full h-full object-contain p-1 rounded-2xl"
                 />
               </div>
@@ -133,7 +136,7 @@ export default function Header() {
                 <span className="text-3xl sm:text-4xl lg:text-5xl font-black bg-gradient-to-r from-blue-800 via-blue-600 to-blue-500 bg-clip-text text-transparent font-heading leading-none tracking-tighter drop-shadow-sm">
                   Apparao
                 </span>
-                <span className="text-[0.8rem] sm:text-sm lg:text-base font-bold text-blue-600/90 uppercase tracking-[0.25em] mt-1 pl-0.5">
+                <span className="text-[0.8rem] sm:text-sm lg:text-base font-bold text-blue-700 uppercase tracking-[0.25em] mt-1 pl-0.5">
                   Safety Nets
                 </span>
               </div>

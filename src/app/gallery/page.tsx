@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { Camera, X, Shield, Eye } from 'lucide-react';
 import Breadcrumbs from '@/components/layout/Breadcrumbs';
 import CTABanner from '@/components/shared/CTABanner';
@@ -87,11 +88,12 @@ export default function GalleryPage() {
               >
                 {/* Visual Image */}
                 <div className="relative w-full aspect-[4/3] bg-slate-50 overflow-hidden">
-                  <img
+                  <Image
                     src={item.imageUrl}
                     alt={item.title}
-                    className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   {/* Overlay */}
                   <div className="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
@@ -136,11 +138,14 @@ export default function GalleryPage() {
             className="max-w-4xl max-h-[90vh] bg-white rounded-2xl overflow-hidden shadow-2xl relative"
             onClick={(e) => e.stopPropagation()}
           >
-            <img
-              src={activeImage.imageUrl}
-              alt={activeImage.title}
-              className="object-contain max-h-[70vh] w-auto mx-auto bg-slate-900"
-            />
+            <div className="relative w-full h-[50vh] sm:h-[70vh] bg-slate-900">
+              <Image
+                src={activeImage.imageUrl}
+                alt={activeImage.title}
+                fill
+                className="object-contain"
+              />
+            </div>
             <div className="p-6 bg-white border-t border-slate-100">
               <span className="text-xs font-semibold text-primary-600">
                 {activeImage.categoryLabel}

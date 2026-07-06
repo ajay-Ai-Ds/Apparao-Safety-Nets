@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback, useRef } from 'react';
+import Image from 'next/image';
 import { AnimatePresence, motion } from 'framer-motion';
 import {
   Phone,
@@ -234,11 +235,13 @@ export default function HeroCarousel() {
             }}
             className="absolute inset-0 w-full h-full"
           >
-            <img
+            <Image
               src={currentSlide.image}
               alt={currentSlide.titleHighlight}
-              className="w-full h-full object-cover object-center brightness-[0.90] saturate-[1.10]"
-              loading={current === 0 ? 'eager' : 'lazy'}
+              fill
+              priority={current === 0}
+              className="object-cover object-center brightness-[0.90] saturate-[1.10]"
+              sizes="100vw"
             />
           </motion.div>
         </AnimatePresence>

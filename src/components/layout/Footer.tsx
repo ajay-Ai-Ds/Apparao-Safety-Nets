@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   Phone,
   Mail,
@@ -72,9 +73,11 @@ export default function Footer() {
             {/* Brand */}
             <Link href="/" className="inline-flex items-center gap-3 group">
               <div className="relative w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0 overflow-hidden rounded-xl bg-white flex items-center justify-center group-hover:scale-105 transition-all">
-                <img
+                <Image
                   src="/images/Aplogo.webp"
                   alt="Apparao Safety Nets Logo"
+                  width={64}
+                  height={64}
                   className="w-full h-full object-contain p-1 rounded-xl"
                 />
               </div>

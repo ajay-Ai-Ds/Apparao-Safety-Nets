@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Phone, MessageCircle, Info, Shield, Check } from 'lucide-react';
 import { SAFETY_NETS, INVISIBLE_GRILLS, CLOTH_HANGERS } from '@/lib/services-data';
@@ -82,11 +83,12 @@ export default function ServicesTabs() {
                 >
                   {/* Photo with Overlay Info */}
                   <div className="relative w-full aspect-[4/3] bg-slate-50 overflow-hidden">
-                    <img
+                    <Image
                       src={service.heroImage || 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600'}
                       alt={service.title}
-                      className="w-full h-full object-cover object-center"
-                      loading="lazy"
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-cover object-center"
                     />
                   </div>
 
