@@ -215,6 +215,7 @@ export default function HeroCarousel() {
   const waHref = `https://wa.me/${BUSINESS.whatsapp.replace(/[^0-9]/g, '')}?text=${WHATSAPP_MESSAGE}`;
 
   return (
+    <>
     <section
       id="hero"
       className="relative min-h-[85vh] lg:min-h-screen flex items-center pt-24 pb-12 overflow-hidden bg-slate-900"
@@ -227,7 +228,7 @@ export default function HeroCarousel() {
           <motion.div
             key={current}
             initial={{ opacity: 0, scale: 1 }}
-            animate={{ opacity: 1, scale: 1.06 }}
+            animate={{ opacity: 1, scale: 1.05 }}
             exit={{ opacity: 0 }}
             transition={{
               opacity: { duration: 0.9, ease: 'easeInOut' },
@@ -240,13 +241,14 @@ export default function HeroCarousel() {
               alt={currentSlide.titleHighlight}
               fill
               priority={current === 0}
+              quality={100}
               className="object-cover object-center brightness-[0.95] saturate-[1.05]"
               sizes="100vw"
             />
           </motion.div>
         </AnimatePresence>
-        {/* Left-to-right warm/yellowish gradient overlay for text readability and visible images */}
-        <div className="absolute inset-0 z-10 bg-amber-950/15 md:bg-gradient-to-r md:from-amber-950/50 md:via-amber-950/15 md:to-transparent pointer-events-none" />
+        {/* Darker gradient overlay for improved text readability */}
+        <div className="absolute inset-0 z-10 bg-slate-900/40 md:bg-gradient-to-r md:from-slate-950/70 md:via-slate-950/30 md:to-transparent pointer-events-none" />
       </div>
 
       <div className="container-custom relative z-20 w-full py-12 lg:py-20">
@@ -362,8 +364,8 @@ export default function HeroCarousel() {
             </div>
           </div>
 
-          {/* Hero Right: Booking Form */}
-          <div className="lg:col-span-4 w-full mt-8 lg:mt-0 pb-24 lg:pb-0">
+          {/* Hero Right: Booking Form (Desktop Only) */}
+          <div className="lg:col-span-4 w-full mt-8 lg:mt-0 hidden lg:block">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -473,5 +475,117 @@ export default function HeroCarousel() {
         </div>
       </div>
     </section>
+
+    {/* Mobile Enquiry Form - Rendered outside the hero section only on mobile to keep hero image sharp and prevent digital zooming */}
+    <div className="lg:hidden bg-slate-950 border-t border-slate-900 py-12 px-4">
+      <div className="max-w-md mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.5 }}
+          className="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl relative"
+        >
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div className="text-center pb-2 border-b border-slate-800">
+              <h3 className="text-xl font-bold text-white font-heading">
+                Book Free Inspection
+              </h3>
+              <p className="text-slate-400 text-xs mt-1">
+                Get phone estimate &amp; site visit in 15 mins!
+              </p>
+            </div>
+
+            <div>
+              <label htmlFor="mobile-hero-name" className="sr-only">Your Name</label>
+              <input
+                id="mobile-hero-name"
+                type="text"
+                required
+                placeholder="Your Name *"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className="w-full px-3 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-sm text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 transition-colors"
+              />
+            </div>
+
+            <div className="grid grid-cols-2 gap-3">
+              <div>
+                <label htmlFor="mobile-hero-phone" className="sr-only">Phone Number</label>
+                <input
+                  id="mobile-hero-phone"
+                  type="tel"
+                  required
+                  placeholder="Phone *"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  className="w-full px-3 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-sm text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 transition-colors"
+                />
+              </div>
+              <div>
+                <label htmlFor="mobile-hero-location" className="sr-only">Location / Area</label>
+                <input
+                  id="mobile-hero-location"
+                  type="text"
+                  placeholder="Your Area"
+                  value={location}
+                  onChange={(e) => setLocation(e.target.value)}
+                  className="w-full px-3 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-sm text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 transition-colors"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label htmlFor="mobile-hero-service" className="sr-only">Select Service</label>
+              <select
+                id="mobile-hero-service"
+                value={service}
+                onChange={(e) => setService(e.target.value)}
+                className="w-full px-3 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-sm text-white focus:outline-none focus:border-emerald-500 transition-colors"
+              >
+                {servicesList.map((srv) => (
+                  <option key={srv} value={srv} className="bg-slate-950 text-white">
+                    {srv}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="w-full bg-emerald-500 hover:bg-emerald-600 text-white py-3 rounded-xl text-sm font-bold flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl transition-all cursor-pointer"
+            >
+              <span>Submit Booking Request</span>
+              <ArrowRight className="w-4 h-4 animate-pulse-soft" />
+            </button>
+
+            <div className="grid grid-cols-2 gap-3 pt-2 border-t border-slate-800">
+              <a
+                href={callHref}
+                className="flex items-center justify-center space-x-1 bg-amber-500 hover:bg-amber-600 text-white py-2 rounded-lg text-xs font-bold transition-colors"
+                id="mobile-hero-form-call"
+                data-tracking="call-click"
+              >
+                <Phone className="w-3.5 h-3.5 fill-white text-white" />
+                <span>Call Now</span>
+              </a>
+              <a
+                href={waHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center space-x-1 bg-green-600 hover:bg-green-500 text-white py-2 rounded-lg text-xs font-bold transition-colors"
+                id="mobile-hero-form-whatsapp"
+                data-tracking="whatsapp-click"
+              >
+                <MessageCircle className="w-3.5 h-3.5 fill-white text-white" />
+                <span>WhatsApp</span>
+              </a>
+            </div>
+          </form>
+        </motion.div>
+      </div>
+    </div>
+    </>
   );
 }

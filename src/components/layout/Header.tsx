@@ -223,18 +223,17 @@ export default function Header() {
             </div>
 
             {/* Mobile Actions */}
-            <div className="flex items-center gap-1.5 sm:gap-2 lg:hidden shrink-0">
+            <div className="flex items-center gap-2 lg:hidden shrink-0">
               <a
                 href={`tel:${BUSINESS.phone}`}
-                className="inline-flex items-center gap-1.5 rounded-lg border border-primary-200 bg-primary-50 px-2 sm:px-2.5 py-2 text-xs font-semibold text-primary-700 shadow-sm transition-colors hover:bg-primary-100"
+                className="w-11 h-11 flex items-center justify-center rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 text-white hover:opacity-95 shadow-md transition-all active:scale-95"
                 aria-label={`Call ${BUSINESS.phone}`}
               >
-                <Phone className="w-4 h-4 shrink-0" />
-                <span className="hidden sm:inline truncate">{BUSINESS.phone}</span>
+                <Phone className="w-5 h-5 fill-white" />
               </a>
               <button
-                className="p-2 rounded-lg text-slate-700 hover:bg-primary-50 transition-colors"
                 onClick={() => setIsMobileOpen(!isMobileOpen)}
+                className="w-11 h-11 flex items-center justify-center rounded-xl transition-colors border border-slate-200 bg-slate-50 hover:bg-slate-100 text-slate-800"
                 aria-label={isMobileOpen ? 'Close menu' : 'Open menu'}
                 aria-expanded={isMobileOpen}
               >
