@@ -116,27 +116,27 @@ export default function Header() {
           }`}
       >
         <div className="container-custom">
-          <div className="flex items-center justify-between py-2 lg:py-4">
+          <div className="flex items-center justify-between py-2 lg:py-4 flex-nowrap w-full">
             {/* Logo */}
             <Link
               href="/"
-              className="flex items-center gap-3 group"
+              className="flex items-center gap-2 sm:gap-3 group shrink-0"
               aria-label="Apparao Safety Nets - Home"
             >
-              <div className="relative w-16 h-16 sm:w-20 sm:h-20 flex-shrink-0 overflow-hidden rounded-2xl border border-slate-200 shadow-sm bg-white flex items-center justify-center group-hover:scale-105 transition-all">
+              <div className="relative w-12 h-12 sm:w-20 sm:h-20 flex-shrink-0 overflow-hidden rounded-xl sm:rounded-2xl border border-slate-200 shadow-sm bg-white flex items-center justify-center group-hover:scale-105 transition-all">
                 <Image
                   src="/images/Aplogo.webp"
                   alt="Apparao Safety Nets Logo"
                   width={80}
                   height={80}
-                  className="w-full h-full object-contain p-1 rounded-2xl"
+                  className="w-full h-full object-contain p-1"
                 />
               </div>
               <div className="flex flex-col justify-center">
-                <span className="text-3xl sm:text-4xl lg:text-5xl font-black bg-gradient-to-r from-blue-800 via-blue-600 to-blue-500 bg-clip-text text-transparent font-heading leading-none tracking-tighter drop-shadow-sm">
+                <span className="text-xl sm:text-4xl lg:text-5xl font-black bg-gradient-to-r from-blue-800 via-blue-600 to-blue-500 bg-clip-text text-transparent font-heading leading-none tracking-tighter drop-shadow-sm">
                   Apparao
                 </span>
-                <span className="text-[0.8rem] sm:text-sm lg:text-base font-bold text-blue-700 uppercase tracking-[0.25em] mt-1 pl-0.5">
+                <span className="text-[0.65rem] sm:text-sm lg:text-base font-bold text-blue-700 uppercase tracking-[0.25em] mt-0.5 sm:mt-1 pl-0.5">
                   Safety Nets
                 </span>
               </div>
@@ -222,14 +222,14 @@ export default function Header() {
             </div>
 
             {/* Mobile Actions */}
-            <div className="flex items-center gap-2 lg:hidden">
+            <div className="flex items-center gap-1.5 sm:gap-2 lg:hidden shrink-0">
               <a
                 href={`tel:${BUSINESS.phone}`}
-                className="inline-flex items-center gap-1.5 rounded-lg border border-primary-200 bg-primary-50 px-2.5 py-2 text-xs font-semibold text-primary-700 shadow-sm transition-colors hover:bg-primary-100"
+                className="inline-flex items-center gap-1.5 rounded-lg border border-primary-200 bg-primary-50 px-2 sm:px-2.5 py-2 text-xs font-semibold text-primary-700 shadow-sm transition-colors hover:bg-primary-100"
                 aria-label={`Call ${BUSINESS.phone}`}
               >
-                <Phone className="w-3.5 h-3.5 shrink-0" />
-                <span className="truncate">{BUSINESS.phone}</span>
+                <Phone className="w-4 h-4 shrink-0" />
+                <span className="hidden sm:inline truncate">{BUSINESS.phone}</span>
               </a>
               <button
                 className="p-2 rounded-lg text-slate-700 hover:bg-primary-50 transition-colors"

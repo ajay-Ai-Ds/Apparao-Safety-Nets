@@ -324,7 +324,7 @@ export default function HeroCarousel() {
             </div>
 
             {/* Navigation Buttons */}
-            <div className="flex items-center space-x-4 pt-4">
+            <div className="flex items-center space-x-4 pt-4 pb-20 lg:pb-0">
               <div className="flex space-x-2">
                 <button
                   onClick={prev}
