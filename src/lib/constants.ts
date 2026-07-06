@@ -3,9 +3,9 @@ import type { BusinessInfo, NavItem } from '@/types';
 export const BUSINESS: BusinessInfo = {
   name: 'Apparao Safety Nets',
   legalName: 'Apparao Safety Nets Hyderabad',
-  phone: '+91-9876543210',
-  whatsapp: '+91-9876543210',
-  trackingPhone: '+91-9876543211',
+  phone: '+91-8309291531',
+  whatsapp: '+91-8309291531',
+  trackingPhone: '+91-8309291531',
   email: 'info@apparaosafetynets.com',
   address: {
     street: 'Plot No. 42, Beside Metro Station',
