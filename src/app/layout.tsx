@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Inter, Outfit } from 'next/font/google';
+import Script from 'next/script';
 import { Suspense } from 'react';
 import './globals.css';
 import Header from '@/components/layout/Header';
@@ -17,7 +18,6 @@ const outfit = Outfit({
   variable: '--font-outfit',
   subsets: ['latin'],
   display: 'swap',
-  weight: ['400', '500', '600', '700', '800'],
 });
 
 export const metadata: Metadata = {
@@ -92,9 +92,18 @@ export default function RootLayout({
       className={`${inter.variable} ${outfit.variable} h-full`}
     >
       <head>
+        {/* Preconnect to GTM/Google Analytics domains */}
+        <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://www.google-analytics.com" crossOrigin="anonymous" />
+        
         {/* Google tag (gtag.js) */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-M5S8SWWZ2Y"></script>
-        <script
+        <Script
+          strategy="lazyOnload"
+          src="https://www.googletagmanager.com/gtag/js?id=G-M5S8SWWZ2Y"
+        />
+        <Script
+          id="gtag-init"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
@@ -108,7 +117,9 @@ export default function RootLayout({
         
         {/* Google Tag Manager */}
         {gtmId && gtmId !== 'GTM-XXXXXXX' && (
-          <script
+          <Script
+            id="gtm-script"
+            strategy="lazyOnload"
             dangerouslySetInnerHTML={{
               __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
               new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],

@@ -1,13 +1,16 @@
+import dynamic from 'next/dynamic';
 import HeroCarousel from '@/components/home/HeroCarousel';
 import ServicesTabs from '@/components/home/ServicesTabs';
 import WhyChooseUs from '@/components/home/WhyChooseUs';
-import HomeGallery from '@/components/home/HomeGallery';
-import ProcessSteps from '@/components/home/ProcessSteps';
-import Testimonials from '@/components/home/Testimonials';
-import FAQSection from '@/components/home/FAQSection';
-import CTABanner from '@/components/shared/CTABanner';
 import { Shield, Award, Clock, Users } from 'lucide-react';
 import { BUSINESS } from '@/lib/constants';
+
+// Dynamic imports for below-the-fold components
+const HomeGallery = dynamic(() => import('@/components/home/HomeGallery'), { ssr: true });
+const ProcessSteps = dynamic(() => import('@/components/home/ProcessSteps'), { ssr: true });
+const Testimonials = dynamic(() => import('@/components/home/Testimonials'), { ssr: true });
+const FAQSection = dynamic(() => import('@/components/home/FAQSection'), { ssr: true });
+const CTABanner = dynamic(() => import('@/components/shared/CTABanner'), { ssr: true });
 
 export default function HomePage() {
   return (

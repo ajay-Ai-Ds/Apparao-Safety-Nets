@@ -241,6 +241,7 @@ export default function HeroCarousel() {
               alt={currentSlide.titleHighlight}
               fill
               priority={current === 0}
+              fetchPriority={current === 0 ? "high" : "auto"}
               quality={100}
               className="object-cover object-center brightness-[0.95] saturate-[1.05]"
               sizes="100vw"
