@@ -99,7 +99,7 @@ export default function RootLayout({
         {/* Google tag (gtag.js) */}
         <Script
           strategy="lazyOnload"
-          src="https://www.googletagmanager.com/gtag/js?id=G-M5S8SWWZ2Y"
+          src="https://www.googletagmanager.com/gtag/js?id=AW-18304733170"
         />
         <Script
           id="gtag-init"
@@ -111,6 +111,7 @@ export default function RootLayout({
               gtag('js', new Date());
 
               gtag('config', 'G-M5S8SWWZ2Y');
+              gtag('config', 'AW-18304733170');
             `,
           }}
         />
